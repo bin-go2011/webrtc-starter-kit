@@ -1,9 +1,8 @@
-#include <webrtc/base/logging.h>
-
-using namespace logging;
+#include "rtc_base/logging.h"
+#include <iostream>
 
 int main()
 {
-    LOG(INFO) << "Hello World! ";
+    RTC_LOG(LS_VERBOSE) << "Hello WebRTC";
     return 0;
 }
