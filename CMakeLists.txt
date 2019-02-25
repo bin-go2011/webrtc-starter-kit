@@ -10,7 +10,7 @@ set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH}
 
 add_definitions(-g)
 
-find_package(WebRTC REQUIRED)
+include(FindLibraries)
 
 include_directories(${WEBRTC_INCLUDE_DIR}
     ${WEBRTC_INCLUDE_DIR}/webrtc

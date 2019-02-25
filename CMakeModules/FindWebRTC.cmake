@@ -3,7 +3,8 @@
 #  WEBRTC_FOUND
 #  WEBRTC_DEFINES
 #  WEBRTC_INCLUDE_DIR
-#  WEBRTC_LIBRARIES
+#  WEBRTC_LIBRARIES_DEBUG
+#  WEBRTC_LIBRARIES_RELEASE
 #
 
 # ============================================================================
@@ -25,7 +26,7 @@ endif()
 
 if ( "${WEBRTC_ROOT_DIR}" STREQUAL "")
     message(FATAL_ERROR "A WEBRTC_ROOT_DIR is requred. \n"
-                        " ex) cmake .. -DWEBRTC_ROOT_DIR=/dir/webrtc-checkout/src \n")
+                        " ex) cmake .. -DWEBRTC_ROOT_DIR=/dir/webrtc-build/build -DCMAKE_BUILD_TYPE=Debug|Release \n")
 endif()
 
 # ============================================================================
@@ -45,9 +46,14 @@ find_path(WEBRTC_INCLUDE_DIR
 # Find WebRTC libries
 #   webrtc -> webrtc.lib or libwebrtc.a
 # ============================================================================
-find_library(WEBRTC_LIBRARIES
+find_library(WEBRTC_LIBRARIES_DEBUG
   NAMES webrtc libwebrtc webrtc_full libwebrtc_full
-  PATHS ${WEBRTC_ROOT_DIR}/lib
+  PATHS ${WEBRTC_ROOT_DIR}/lib/Debug
+)
+
+find_library(WEBRTC_LIBRARIES_RELEASE
+  NAMES webrtc libwebrtc webrtc_full libwebrtc_full
+  PATHS ${WEBRTC_ROOT_DIR}/lib/Release
 )
 
 # ----------------------------------------------------------------------
